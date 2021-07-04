@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDevisePassControllerValueToMailer</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+
+  <body>
+    <%# deviseを使ったログインができているかを確認しやすくするため、追加 %>
+    <% if current_user.present? %>
+      <p>ログイン済ユーザ: <%= current_user.email %></p>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%# 追加ここまで %>
+
+    <%= yield %>
+  </body>
+</html>
