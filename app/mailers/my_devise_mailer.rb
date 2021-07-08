@@ -7,13 +7,6 @@ class MyDeviseMailer < Devise::Mailer
     super.merge!(template_path: 'users/mailer')
   end
 
-  def reset_password_instructions(record, token, opts = {})
-    # attr_accessorに設定したControllerの値を取り出し、テンプレートで使えるようインスタンス変数にセット
-    @controller_value = params&.fetch(:controller_value)
-
-    super(record, token, opts)
-  end
-
   protected
 
   def subject_for(key)
