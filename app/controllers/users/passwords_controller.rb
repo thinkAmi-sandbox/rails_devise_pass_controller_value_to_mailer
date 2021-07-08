@@ -8,8 +8,10 @@ class Users::PasswordsController < Devise::PasswordsController
 
   # POST /resource/password
   def create
-    params[:user][:controller_value] = 'from controller'
-    super
+    ApplicationRecord.transaction do
+      params[:user][:controller_value] = 'from controller'
+      super
+    end
   end
 
   # GET /resource/password/edit?reset_password_token=abcdef

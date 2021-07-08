@@ -5,6 +5,8 @@ class User < ApplicationRecord
   #        :recoverable, :rememberable, :validatable
   devise :database_authenticatable, :recoverable, :validatable
 
+  include DeviseDeliverLater
+
   attr_accessor :controller_value
 
   def self.find_or_initialize_with_errors(required_attributes, attributes, error = :invalid)

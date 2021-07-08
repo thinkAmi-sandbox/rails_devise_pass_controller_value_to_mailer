@@ -47,3 +47,6 @@ gem 'devise'
 group :development do
   gem 'letter_opener'
 end
+
+# メール送信をジョブ実行で行う
+gem 'delayed_job_active_record'
