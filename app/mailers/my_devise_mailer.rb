@@ -9,7 +9,7 @@ class MyDeviseMailer < Devise::Mailer
 
   def reset_password_instructions(record, token, opts = {})
     # attr_accessorに設定したControllerの値を取り出し、テンプレートで使えるようインスタンス変数にセット
-    @controller_value = record.controller_value
+    @controller_value = params&.fetch(:controller_value)
 
     super(record, token, opts)
   end

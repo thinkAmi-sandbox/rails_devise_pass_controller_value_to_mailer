@@ -39,7 +39,7 @@ module DeviseDeliverLater
   end
 
   def render_and_send_devise_message(notification, *args)
-    message = devise_mailer.send(notification, self, *args)
+    message = devise_mailer.with(controller_value: controller_value).send(notification, self, *args)
 
     # Deliver later with Active Job's `deliver_later`
     if message.respond_to?(:deliver_later)
