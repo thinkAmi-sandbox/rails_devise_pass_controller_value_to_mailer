@@ -75,4 +75,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
   # メール配信を行う
   config.action_mailer.perform_deliveries = true
+
+  # Active JobでDelayed Jobを使う
+  config.active_job.queue_adapter = :delayed_job
 end
