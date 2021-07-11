@@ -11,6 +11,8 @@ class Users::PasswordsController < Devise::PasswordsController
     ApplicationRecord.transaction do
       params[:user][:controller_value] = 'from controller'
       super
+
+      MyCustomMailer.with(email: 'manager@example.com', controller_value: 'from controller').notify_manager.deliver_later
     end
   end
 
